@@ -1,0 +1,23 @@
+{
+  "name": "gnz-marketing",
+  "version": "1.0.0",
+  "description": "Static Next.js website for GNZ Marketing, LLC.",
+  "private": true,
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "lucide-react": "^1.17.0",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  }
+}
