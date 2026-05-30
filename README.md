@@ -31,3 +31,10 @@ Netlify settings are included in `netlify.toml`:
 - Contact forms are visual-only right now. Email, SMS, CRM, or form storage can be added later.
 - Principal bios, company about copy, certifications, and article content include placeholder/mock content.
 - The generated hero image used by the site is saved at `public/images/gnz-hero.png`.
+
+//////////////////////////////////
+To run locally:
+npx serve@latest out
+
+/////////////////////////////////
+

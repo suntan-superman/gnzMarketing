@@ -51,11 +51,15 @@ export default function BehavioralSciencePage() {
                 <div className="industry-image" style={{ backgroundImage: industry.gradient }} />
                 <div>
                   <h3>{industry.name}</h3>
-                  <ul>
-                    {industry.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
+                  {industry.description ? (
+                    <p>{industry.description}</p>
+                  ) : (
+                    <ul>
+                      {industry.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </article>
             ))}

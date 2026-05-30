@@ -16,9 +16,9 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "GNZ Marketing, LLC | Better Marketing. Less Guesswork.",
+  title: "GNZ Marketing, LLC | Marketing Powered by Data",
   description:
-    "GNZ Marketing, LLC helps organizations improve marketing performance through behavioral science, data science, and performance marketing.",
+    "GNZ Marketing helps organizations transform data into actionable insights, smarter campaigns, and measurable business growth.",
   metadataBase: new URL("https://gnzmarketingllc.com"),
 };
 

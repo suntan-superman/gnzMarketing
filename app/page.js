@@ -23,8 +23,8 @@ export default function Home() {
     <>
       <Hero
         eyebrow="GNZ Marketing, LLC"
-        title="Better Marketing. Less Guesswork."
-        copy="We help organizations connect smarter strategy, data-driven insight, and performance marketing so teams can make decisions they can rely on."
+        title="Marketing Powered by Data. Growth Driven by Results."
+        copy="GNZ Marketing helps organizations transform data into actionable insights, smarter campaigns, and measurable business growth."
         ctaLabel="Learn More"
         ctaHref="/about"
         variant="home"
@@ -32,15 +32,10 @@ export default function Home() {
 
       <section className="band band-blue">
         <div className="container readable">
-          <h2>Stop Marketing on Assumptions. Start Using Science to Understand Your Audience.</h2>
+          <h2>Understand Why Customers Buy.</h2>
           <p>
-            You have seconds to make a meaningful impression with each new interaction. GNZ Marketing helps teams find the
-            why behind customer decisions, then turn that understanding into focused campaigns, clearer messaging, and better
-            use of budget.
-          </p>
-          <p>
-            Our placeholder positioning mirrors the LimeTree service mix for now: behavioral science, data science, and
-            performance marketing working together from insight to execution.
+            GNZ Marketing combines behavioral science, market intelligence, and performance marketing to help organizations
+            create more effective campaigns, stronger messaging, and measurable growth.
           </p>
         </div>
       </section>
@@ -49,7 +44,7 @@ export default function Home() {
         <div className="container">
           <SectionIntro
             kicker="How It Works"
-            title="Improving marketing outcomes with a proven approach that unites data and behavioral science."
+            title="Understand What Drives Customers. Grow What Drives Revenue."
           />
           <div className="service-grid">
             {services.map((service) => (
@@ -74,17 +69,18 @@ export default function Home() {
       <section className="section visual-band">
         <div className="container">
           <SectionIntro
-            title="Actionable Customer Insights for Growing Business"
-            copy="GNZ works hand-in-hand with clients who want to improve performance, maximize budgets, gain audience clarity, and increase engagement."
+            title="Turn Customer Insights Into Measurable Growth"
+            copy="GNZ Marketing helps organizations uncover what drives customer decisions and transform those insights into strategies that increase engagement, improve marketing performance, and accelerate growth."
             centered
           />
           <div className="outcome-grid">
             {outcomes.map((outcome, index) => {
               const Icon = outcomeIcons[index];
               return (
-                <div className="outcome" key={outcome}>
+                <div className="outcome" key={outcome.title}>
                   <Icon size={34} strokeWidth={2.2} />
-                  <strong>{outcome}</strong>
+                  <strong>{outcome.title}</strong>
+                  <p>{outcome.copy}</p>
                 </div>
               );
             })}
@@ -95,8 +91,8 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <SectionIntro
-            kicker="Deep Industry Expertise"
-            copy="We have significant experience applying behavioral science services across a wide range of industries, and the results speak for themselves."
+            kicker="Industries We Serve"
+            copy="We help organizations understand customer behavior, improve decision-making, and drive measurable business outcomes across complex and highly regulated industries."
           />
           <div className="industry-list compact">
             {industries.slice(0, 3).map((industry) => (
@@ -106,11 +102,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3>{industry.name}</h3>
-                  <ul>
-                    {industry.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
+                  <p>{industry.description}</p>
                 </div>
               </article>
             ))}

@@ -344,13 +344,20 @@ nav a.active {
 .outcome {
   display: grid;
   justify-items: center;
-  gap: 18px;
+  gap: 10px;
   text-align: center;
   color: var(--charcoal);
 }
 
 .outcome svg {
   color: var(--copper);
+}
+
+.outcome p {
+  max-width: 230px;
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.45;
 }
 
 .industry-list {
