@@ -26,6 +26,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${inter.variable}`}>
+        <aside className="site-notice" aria-label="Website status">
+          <span className="site-notice-label">Website in progress</span>
+          <span>We&apos;re putting the finishing touches on our new site. Thanks for visiting early.</span>
+        </aside>
         <SiteHeader />
         <main>{children}</main>
         <FloatingContact />
