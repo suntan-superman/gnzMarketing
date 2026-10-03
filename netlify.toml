@@ -1,3 +1,8 @@
 [build]
   command = "npm run build"
   publish = ".next"
+
+[build.environment]
+  # This key is intentionally browser-safe and is required by Supabase's
+  # client/session integration. Keep server secrets covered by Netlify scans.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"

@@ -44,6 +44,6 @@ test("content validation keeps incomplete jobs and Hub entries available for edi
 });
 
 test("phone display and dialing values derive from one configured value", () => {
-  assert.deepEqual(getBusinessPhone("6613437663"), { phoneDisplay: "(661) 343-7663", phoneHref: "tel:+16613437663" });
+  assert.deepEqual(getBusinessPhone("2025550100"), { phoneDisplay: "(202) 555-0100", phoneHref: "tel:+12025550100" });
   assert.equal(getBusinessPhone("").phoneHref, "/contact");
 });
