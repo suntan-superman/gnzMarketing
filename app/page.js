@@ -14,6 +14,7 @@ import CTASection from "@/components/CTASection";
 import Hero from "@/components/Hero";
 import SectionIntro from "@/components/SectionIntro";
 import ServiceCard from "@/components/ServiceCard";
+import WhyGNZ from "@/components/WhyGNZ";
 import { industries, outcomes, services } from "@/lib/content";
 
 export default function Home() {
@@ -53,6 +54,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <WhyGNZ />
 
       <section className="section section-rule">
         <div className="container">

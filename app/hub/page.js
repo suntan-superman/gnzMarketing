@@ -1,11 +1,14 @@
 import Hero from "@/components/Hero";
-import { posts } from "@/lib/content";
+import { getPublicHubEntries } from "@/lib/siteContent";
 
 export const metadata = {
   title: "The Hub | GNZ Marketing, LLC",
 };
 
-export default function HubPage() {
+export const dynamic = "force-dynamic";
+
+export default async function HubPage() {
+  const entries = await getPublicHubEntries();
   return (
     <>
       <Hero
@@ -15,14 +18,15 @@ export default function HubPage() {
       />
       <section className="section">
         <div className="container post-list">
-          {posts.map((post) => (
-            <article key={post.title}>
-              <h2>{post.title}</h2>
-              <p>{post.excerpt}</p>
+          {entries.map((entry) => (
+            <article key={entry.id}>
+              <h2>{entry.title}</h2>
+              <p>{entry.description}</p>
               <a href="/contact">Read more &rarr;</a>
-              <small>{post.author}</small>
+              {entry.author ? <small>{entry.author}</small> : null}
             </article>
           ))}
+          {!entries.length ? <p>No Hub entries are available yet. Please check back soon.</p> : null}
         </div>
       </section>
     </>

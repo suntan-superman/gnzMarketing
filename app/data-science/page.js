@@ -18,7 +18,7 @@ export default function DataSciencePage() {
         <div className="container">
           <h2>Revealing the Truth Behind the Numbers</h2>
           <p className="wide-copy">
-            Data is important, but the real advantage comes from identifying the critical factors in your customers'
+            Data is important, but the real advantage comes from identifying the critical factors in your customers&apos;
             decision-making and turning them into practical marketing action.
           </p>
           <div className="data-steps">

@@ -1,8 +1,6 @@
 import "./globals.css";
 import { Poppins, Inter } from "next/font/google";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import FloatingContact from "@/components/FloatingContact";
+import SiteFrame from "@/components/SiteFrame";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,14 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${inter.variable}`}>
-        <aside className="site-notice" aria-label="Website status">
-          <span className="site-notice-label">Website in progress</span>
-          <span>We&apos;re putting the finishing touches on our new site. Thanks for visiting early.</span>
-        </aside>
-        <SiteHeader />
-        <main>{children}</main>
-        <FloatingContact />
-        <SiteFooter />
+        <SiteFrame>{children}</SiteFrame>
       </body>
     </html>
   );

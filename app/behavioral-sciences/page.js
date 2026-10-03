@@ -1,7 +1,7 @@
 import { Blend, ClipboardCheck, FileSearch, Microscope } from "lucide-react";
 import Hero from "@/components/Hero";
 import CTASection from "@/components/CTASection";
-import { industries } from "@/lib/content";
+import { behavioralIndustries } from "@/lib/content";
 
 export const metadata = {
   title: "Behavioral Science | GNZ Marketing, LLC",
@@ -45,9 +45,9 @@ export default function BehavioralSciencePage() {
       <section className="section band-gray">
         <div className="container">
           <h2>Deep Industry Expertise</h2>
-          <div className="industry-list">
-            {industries.map((industry) => (
-              <article className="industry-item" key={industry.name}>
+          <div className="industry-list single-industry-list">
+            {behavioralIndustries.map((industry) => (
+              <article className="industry-item single-industry-item" key={industry.name}>
                 <div className="industry-image" style={{ backgroundImage: industry.gradient }} />
                 <div>
                   <h3>{industry.name}</h3>

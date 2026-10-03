@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { getBusinessPhone } from "@/lib/phone";
+
+const { phoneDisplay, phoneHref } = getBusinessPhone(process.env.NEXT_PUBLIC_BUSINESS_PHONE_DISPLAY);
 
 export default function SiteFooter() {
   return (
@@ -10,7 +13,7 @@ export default function SiteFooter() {
         </div>
         <div>
           <h2>Contact</h2>
-          <a href="tel:16613437663">661-343-7663</a>
+          {phoneDisplay ? <a href={phoneHref}>{phoneDisplay}</a> : null}
           <a href="mailto:contact@gnzmarketingllc.com">contact@gnzmarketingllc.com</a>
           <span>gnzmarketingllc.com</span>
         </div>

@@ -1,13 +1,16 @@
 import { Play, Sparkles } from "lucide-react";
 import Hero from "@/components/Hero";
 import SectionIntro from "@/components/SectionIntro";
-import { principals } from "@/lib/content";
+import { getPublicPrincipals } from "@/lib/siteContent";
 
 export const metadata = {
   title: "About | GNZ Marketing, LLC",
 };
 
-export default function AboutPage() {
+export const dynamic = "force-dynamic";
+
+export default async function AboutPage() {
+  const principals = await getPublicPrincipals();
   return (
     <>
       <Hero
@@ -59,7 +62,7 @@ export default function AboutPage() {
 
       <section className="section">
         <div className="container">
-          <SectionIntro title="Principals" copy="Mock qualifications are included for now and can be replaced with final bios." centered />
+          <SectionIntro title="Principals" copy="Meet the people behind GNZ's behavioral, data, and performance marketing work." centered />
           <div className="principal-grid">
             {principals.map((principal) => (
               <article className="principal-card" key={principal.name}>
