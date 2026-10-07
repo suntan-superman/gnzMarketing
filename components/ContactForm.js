@@ -19,6 +19,10 @@ function FieldError({ message }) {
   return message ? <span className="field-error" role="alert">{message}</span> : null;
 }
 
+function FieldLabel({ children, required = false }) {
+  return <span className="field-label">{children}{required ? <span className="required-mark" aria-hidden="true">*</span> : null}</span>;
+}
+
 export default function ContactForm({ compact = false }) {
   const [fields, setFields] = useState(initialFields);
   const [submissionToken] = useState(() => globalThis.crypto?.randomUUID?.() || "33333333-3333-4333-8333-333333333333");
@@ -66,18 +70,18 @@ export default function ContactForm({ compact = false }) {
         {!compact ? <div className="contact-heading"><h2>Let&apos;s Talk</h2><p>Tell us what you are working toward and where you would like to improve marketing performance.</p></div> : null}
         <form className="contact-form" onSubmit={submit} noValidate>
           <div className="form-row">
-            <label htmlFor={`${idPrefix}-firstName`}>First name <span>*</span><input id={`${idPrefix}-firstName`} name="firstName" autoComplete="given-name" value={fields.firstName} onChange={change} aria-invalid={Boolean(errors.firstName)} /><FieldError message={errors.firstName} /></label>
-            <label htmlFor={`${idPrefix}-lastName`}>Last name<input id={`${idPrefix}-lastName`} name="lastName" autoComplete="family-name" value={fields.lastName} onChange={change} /></label>
+            <label htmlFor={`${idPrefix}-firstName`}><FieldLabel required>First name</FieldLabel><input id={`${idPrefix}-firstName`} name="firstName" autoComplete="given-name" value={fields.firstName} onChange={change} aria-invalid={Boolean(errors.firstName)} aria-required="true" /><FieldError message={errors.firstName} /></label>
+            <label htmlFor={`${idPrefix}-lastName`}><FieldLabel>Last name</FieldLabel><input id={`${idPrefix}-lastName`} name="lastName" autoComplete="family-name" value={fields.lastName} onChange={change} /></label>
           </div>
           <div className="form-row">
-            <label htmlFor={`${idPrefix}-company`}>Company<input id={`${idPrefix}-company`} name="companyName" autoComplete="organization" value={fields.companyName} onChange={change} /></label>
-            <label htmlFor={`${idPrefix}-phone`}>Telephone <span>*</span><input id={`${idPrefix}-phone`} name="phone" type="tel" autoComplete="tel" value={fields.phone} onChange={change} aria-invalid={Boolean(errors.phone)} /><FieldError message={errors.phone} /></label>
+            <label htmlFor={`${idPrefix}-company`}><FieldLabel>Company</FieldLabel><input id={`${idPrefix}-company`} name="companyName" autoComplete="organization" value={fields.companyName} onChange={change} /></label>
+            <label htmlFor={`${idPrefix}-phone`}><FieldLabel required>Telephone</FieldLabel><input id={`${idPrefix}-phone`} name="phone" type="tel" autoComplete="tel" value={fields.phone} onChange={change} aria-invalid={Boolean(errors.phone)} aria-required="true" /><FieldError message={errors.phone} /></label>
           </div>
           <div className="form-row">
-            <label htmlFor={`${idPrefix}-email`}>Email <span>*</span><input id={`${idPrefix}-email`} name="email" type="email" autoComplete="email" value={fields.email} onChange={change} aria-invalid={Boolean(errors.email)} /><FieldError message={errors.email} /></label>
-            <label htmlFor={`${idPrefix}-service`}>Service of interest <span>*</span><select id={`${idPrefix}-service`} name="service" value={fields.service} onChange={change} aria-invalid={Boolean(errors.service)}><option value="">Select a service</option>{GNZ_SERVICE_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select><FieldError message={errors.service} /></label>
+            <label htmlFor={`${idPrefix}-email`}><FieldLabel required>Email</FieldLabel><input id={`${idPrefix}-email`} name="email" type="email" autoComplete="email" value={fields.email} onChange={change} aria-invalid={Boolean(errors.email)} aria-required="true" /><FieldError message={errors.email} /></label>
+            <label htmlFor={`${idPrefix}-service`}><FieldLabel required>Service of interest</FieldLabel><select id={`${idPrefix}-service`} name="service" value={fields.service} onChange={change} aria-invalid={Boolean(errors.service)} aria-required="true"><option value="">Select a service</option>{GNZ_SERVICE_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select><FieldError message={errors.service} /></label>
           </div>
-          <label htmlFor={`${idPrefix}-message`}>Comments <span>*</span><textarea id={`${idPrefix}-message`} name="message" rows={compact ? 4 : 6} maxLength="2000" value={fields.message} onChange={change} aria-invalid={Boolean(errors.message)} /><FieldError message={errors.message} /></label>
+          <label htmlFor={`${idPrefix}-message`}><FieldLabel required>Comments</FieldLabel><textarea id={`${idPrefix}-message`} name="message" rows={compact ? 4 : 6} maxLength="2000" value={fields.message} onChange={change} aria-invalid={Boolean(errors.message)} aria-required="true" /><FieldError message={errors.message} /></label>
           <div className="honey-field" aria-hidden="true"><label htmlFor={`${idPrefix}-website`}>Website<input id={`${idPrefix}-website`} name="website" tabIndex="-1" autoComplete="off" value={fields.website} onChange={change} /></label></div>
           <TurnstileWidget onToken={setTurnstileToken} />
           {message && status === "error" ? <div className="form-alert error" role="alert">{message}</div> : null}
