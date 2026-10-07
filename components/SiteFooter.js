@@ -8,8 +8,8 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div>
-          <Link className="footer-brand" href="/">GNZ Marketing, LLC</Link>
-          <p>Behavioral marketing, data science, and performance marketing for clearer growth decisions.</p>
+          <Link className="footer-brand" href="/">GNZ Marketing Group</Link>
+          <p>Business development, marketing, real estate, and strategic partnerships informed by human behavior and useful insight.</p>
         </div>
         <div>
           <h2>Contact</h2>
@@ -19,9 +19,12 @@ export default function SiteFooter() {
         </div>
         <div>
           <h2>Explore</h2>
-          <Link href="/behavioral-sciences">Behavioral Science</Link>
-          <Link href="/data-science">Data Science</Link>
-          <Link href="/performance-marketing">Performance Marketing</Link>
+          <Link href="/services">What We Do</Link>
+          <Link href="/business-development">Business Development</Link>
+          <Link href="/real-estate">Real Estate</Link>
+          <Link href="/approach">Our Approach</Link>
+          <Link href="/hub">Hub</Link>
+          <Link href="/jobs">Jobs</Link>
         </div>
       </div>
     </footer>

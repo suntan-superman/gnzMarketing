@@ -1,4 +1,4 @@
-import { BarChart3, Brain, TrendingUp, Users } from "lucide-react";
+import { BarChart3, Brain, Handshake, TrendingUp } from "lucide-react";
 
 const differentiators = [
   {
@@ -15,18 +15,18 @@ const differentiators = [
     Icon: BarChart3,
   },
   {
-    title: "Performance Marketing",
-    statement: "Connect strategy to measurable business outcomes.",
+    title: "Relationship-Driven Growth",
+    statement: "Connect opportunities with the people who can move them forward.",
     copy:
-      "Strategy matters when it produces results. GNZ connects insight and execution to measurable marketing and business performance.",
-    Icon: TrendingUp,
+      "GNZ brings relationship development, business insight, and strategic partnerships together to create useful connections.",
+    Icon: Handshake,
   },
   {
-    title: "Human-Centered Growth",
-    statement: "Build marketing around people—not just metrics.",
+    title: "Strategic Execution",
+    statement: "Turn insight and opportunity into measurable action.",
     copy:
-      "Data tells us what is happening. Understanding people helps explain why. GNZ combines both to create marketing that connects with real customers.",
-    Icon: Users,
+      "We connect clear objectives, practical strategy, and focused execution so the next decision is easier to make.",
+    Icon: TrendingUp,
   },
 ];
 
@@ -36,10 +36,10 @@ export default function WhyGNZ() {
       <div className="container">
         <div className="section-intro centered why-gnz-intro">
           <p className="kicker">Why GNZ?</p>
-          <h2 id="why-gnz-title">Insight that moves people and performance.</h2>
+          <h2 id="why-gnz-title">Insight that moves people, relationships, and opportunities.</h2>
           <p>
-            We combine behavioral insight, data, and performance strategy to help organizations understand their customers
-            and turn that understanding into measurable growth.
+            We combine behavioral insight, data, relationships, and practical strategy to help organizations identify
+            opportunities and turn them into measurable growth.
           </p>
         </div>
         <div className="why-gnz-grid">

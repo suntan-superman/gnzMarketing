@@ -4,7 +4,7 @@ import SectionIntro from "@/components/SectionIntro";
 import { getPublicPrincipals } from "@/lib/siteContent";
 
 export const metadata = {
-  title: "About | GNZ Marketing, LLC",
+  title: "About GNZ | GNZ Marketing Group",
 };
 
 export const dynamic = "force-dynamic";
@@ -14,28 +14,28 @@ export default async function AboutPage() {
   return (
     <>
       <Hero
-        title="Empowering Smart Marketing Decisions"
-        copy="Partnering with GNZ Marketing is a path to better, smarter, and faster marketing decisions based on real customer decision trends."
+        eyebrow="About GNZ"
+        title="Marketing, relationships, and opportunities connected by strategy."
+        copy="GNZ Marketing Group brings together marketing strategy, behavioral insight, business development, real estate, and strategic relationships to identify opportunities and help organizations grow."
+        ctaLabel="Our Approach"
+        ctaHref="/approach"
         variant="about"
       />
 
       <section className="section split-section">
         <div className="container two-col">
           <div>
-            <h2>Making Marketing Decisions Easier Than Ever</h2>
+            <h2>Who We Are</h2>
             <a className="button" href="/approach">Learn More About Our Approach</a>
           </div>
           <div className="copy-stack">
             <p>
-              GNZ Marketing is a behavioral marketing company dedicated to making marketing smarter and more effective by
-              uniting data, behavioral science, and practical campaign execution.
+              GNZ Marketing Group brings together marketing strategy, behavioral insight, business development, real estate,
+              and strategic relationships to identify opportunities and help organizations grow.
             </p>
             <p>
-              Through a combination of proven processes, qualified professionals, and thoughtful technology, we help clients
-              reduce waste, maximize performance, and focus on the decisions that matter.
-            </p>
-            <p>
-              This is placeholder company copy until final qualifications and background details are available.
+              We connect customer understanding, market insight, and practical execution so organizations can focus on the
+              decisions that matter.
             </p>
           </div>
         </div>
@@ -45,12 +45,12 @@ export default async function AboutPage() {
         <div className="container two-col align-center">
           <div>
             <SectionIntro
-              kicker="The Next Step in Marketing Evolution"
-              copy="GNZ began with a simple, holistic purpose: make marketing smarter and more impactful."
+              kicker="The GNZ perspective"
+              copy="Better growth starts with understanding the opportunity and the people involved."
             />
             <p>
-              We apply curiosity, testing, and clear reporting to uncover the why behind customer behavior and validate the
-              best way to improve process, message, and campaign results.
+              We apply curiosity, evidence, behavioral understanding, and clear reporting to connect strategy with useful
+              action across marketing, business development, real estate, and strategic partnerships.
             </p>
           </div>
           <div className="video-placeholder">
@@ -62,7 +62,7 @@ export default async function AboutPage() {
 
       <section className="section">
         <div className="container">
-          <SectionIntro title="Principals" copy="Meet the people behind GNZ's behavioral, data, and performance marketing work." centered />
+          <SectionIntro title="Principals" copy="Meet the people helping GNZ connect insight, relationships, and opportunity." centered />
           <div className="principal-grid">
             {principals.map((principal) => (
               <article className="principal-card" key={principal.name}>

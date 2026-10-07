@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import { getPublicHubEntries } from "@/lib/siteContent";
 
 export const metadata = {
-  title: "The Hub | GNZ Marketing, LLC",
+  title: "The Hub | GNZ Marketing Group",
 };
 
 export const dynamic = "force-dynamic";

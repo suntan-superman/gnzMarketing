@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, Brain, LineChart, Megaphone } from "lucide-react";
+import { ArrowRight, Brain, Handshake, LineChart, Map, Megaphone } from "lucide-react";
 
 const icons = {
+  Marketing: Megaphone,
+  "Business Development": Handshake,
+  "Real Estate": Map,
   "Behavioral Science": Brain,
   "Data Science": LineChart,
   "Performance Marketing": Megaphone,

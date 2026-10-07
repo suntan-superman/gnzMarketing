@@ -5,23 +5,24 @@ import CTASection from "@/components/CTASection";
 import { services } from "@/lib/content";
 
 export const metadata = {
-  title: "Services | GNZ Marketing, LLC",
+  title: "What We Do | GNZ Marketing Group",
 };
 
 export default function ServicesPage() {
   return (
     <>
       <Hero
-        title="Services Built for Smarter Growth"
-        copy="Keep the LimeTree service structure for now: behavioral science, data science, and performance marketing, adapted for GNZ."
+        eyebrow="What We Do"
+        title="Capabilities built around opportunity and growth."
+        copy="GNZ connects business development, strategic marketing, real estate, behavioral insight, and relationships to help organizations move forward."
         variant="services"
       />
       <section className="section">
         <div className="container">
           <SectionIntro
-            kicker="Our Services"
-            title="End-to-end insight, strategy, and campaign support."
-            copy="Each service page is available as a static route and ready for final copy, case studies, and lead capture integrations later."
+            kicker="Our capabilities"
+            title="The right mix of insight, relationships, and execution."
+            copy="Explore the areas that form GNZ Marketing Group's broader positioning. Existing specialist pages remain available where they add useful detail."
           />
           <div className="service-grid">
             {services.map((service) => (

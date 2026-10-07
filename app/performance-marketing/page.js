@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import CTASection from "@/components/CTASection";
 
 export const metadata = {
-  title: "Performance Marketing | GNZ Marketing, LLC",
+  title: "Performance Marketing | GNZ Marketing Group",
 };
 
 export default function PerformanceMarketingPage() {

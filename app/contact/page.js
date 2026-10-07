@@ -2,15 +2,15 @@ import ContactForm from "@/components/ContactForm";
 import Hero from "@/components/Hero";
 
 export const metadata = {
-  title: "Contact | GNZ Marketing, LLC",
+  title: "Contact | GNZ Marketing Group",
 };
 
 export default function ContactPage() {
   return (
     <>
       <Hero
-        title="Ready to Impact Customer Behavior and Improve ROI?"
-        copy="Contact us to find out how smarter marketing can improve performance and give you a competitive edge."
+        title="Let&apos;s talk about what&apos;s next."
+        copy="Tell us about the opportunity, relationship, or growth challenge you are exploring."
         variant="contact"
       />
       <ContactForm />

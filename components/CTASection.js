@@ -6,7 +6,7 @@ export default function CTASection({ title }) {
       <div className="hero-ring cta-ring" aria-hidden="true" />
       <div className="container">
         <h2>{title}</h2>
-        <p>Contact us to find out how science can improve marketing performance and give you a competitive edge.</p>
+        <p>Tell us what you are working toward and where a clearer strategy, stronger relationship, or new opportunity could help.</p>
         <ContactForm compact />
       </div>
     </section>

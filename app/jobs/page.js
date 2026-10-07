@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import { getPublicJobs } from "@/lib/siteContent";
 
 export const metadata = {
-  title: "Jobs | GNZ Marketing, LLC",
+  title: "Jobs | GNZ Marketing Group",
 };
 
 export const dynamic = "force-dynamic";
@@ -11,7 +11,7 @@ export default async function JobsPage() {
   const jobs = await getPublicJobs();
   return (
     <>
-      <Hero title="Join our team." copy="We are building a science-driven marketing company focused on growth, execution, and useful insight." variant="jobs" />
+      <Hero title="Join our team." copy="We are building a multidisciplinary organization focused on growth, relationships, execution, and useful insight." variant="jobs" />
       <section className="section">
         <div className="container readable">
           <p>

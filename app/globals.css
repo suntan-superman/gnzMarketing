@@ -169,6 +169,48 @@ li {
   gap: clamp(18px, 3vw, 44px);
 }
 
+.nav-group {
+  position: relative;
+}
+
+.nav-group summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-primary);
+  font-family: var(--font-heading), Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.nav-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-group summary.active,
+.nav-group summary:hover {
+  color: var(--primary);
+}
+
+.nav-group-menu {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: -18px;
+  display: grid;
+  min-width: 220px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.nav-group-menu a {
+  padding: 10px 12px;
+  white-space: nowrap;
+}
+
 nav a {
   color: var(--text-primary);
   font-weight: 700;
@@ -202,6 +244,15 @@ nav a:hover {
 .nav-cta:hover,
 .button:hover {
   background: var(--primary-hover);
+}
+
+.button-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  background: transparent;
+}
+
+.button-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .nav-cta:focus-visible,
@@ -277,6 +328,22 @@ textarea:focus-visible {
   font-weight: 700;
 }
 
+.hero-capability {
+  margin-top: 24px;
+  color: #b9f2d2 !important;
+  font-family: var(--font-heading), Arial, sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
 .eyebrow,
 .kicker {
   color: var(--accent);
@@ -330,6 +397,135 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 44px;
+}
+
+.service-grid-four {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.service-grid-four .service-card {
+  min-height: 430px;
+}
+
+.real-estate-grid,
+.real-estate-detail-grid,
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.real-estate-card,
+.real-estate-detail,
+.theme-card {
+  padding: 30px 26px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgba(22, 48, 41, 0.07);
+}
+
+.real-estate-card > svg,
+.real-estate-detail > svg,
+.theme-card > svg {
+  margin-bottom: 24px;
+  color: var(--primary);
+}
+
+.real-estate-card h3,
+.real-estate-detail h2,
+.theme-card h3 {
+  margin-bottom: 12px;
+}
+
+.real-estate-card p,
+.real-estate-detail p,
+.theme-card p {
+  font-size: 0.98rem;
+}
+
+.real-estate-card .text-link,
+.real-estate-detail .text-link {
+  margin-top: 12px;
+}
+
+.real-estate-detail-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.real-estate-detail {
+  scroll-margin-top: 120px;
+}
+
+.detail-note {
+  color: var(--text-primary) !important;
+  font-size: 0.92rem !important;
+  font-style: italic;
+}
+
+.theme-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.approach-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.approach-list li {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 18px;
+  align-items: start;
+  padding: 20px;
+  border-left: 4px solid var(--primary);
+  background: var(--background-alt);
+}
+
+.approach-list li > span {
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+.approach-list strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.approach-list p {
+  margin: 0;
+  font-size: 0.96rem;
+}
+
+.principal-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.principal-preview {
+  padding: 26px;
+  border: 1px solid var(--border);
+  background: var(--white);
+}
+
+.principal-preview h3 {
+  margin-bottom: 8px;
+}
+
+.principal-preview p {
+  font-size: 0.96rem;
+}
+
+.principal-preview .kicker {
+  margin-bottom: 12px;
+  font-size: 0.72rem;
 }
 
 .service-card {
@@ -657,6 +853,10 @@ textarea:focus-visible {
 
 .timeline {
   grid-template-columns: repeat(4, 1fr);
+}
+
+.timeline-five {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .timeline span {
@@ -1327,6 +1527,27 @@ textarea {
     padding: 15px 0;
   }
 
+  .nav-group {
+    width: 100%;
+  }
+
+  .nav-group summary {
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+
+  .nav-group-menu {
+    position: static;
+    min-width: 0;
+    padding: 0 0 8px 16px;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .nav-group-menu a {
+    padding: 10px 0;
+  }
+
   .nav-cta {
     margin-top: 10px;
   }
@@ -1350,6 +1571,16 @@ textarea {
   .data-steps,
   .timeline,
   .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-grid-four,
+  .real-estate-grid,
+  .theme-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .real-estate-detail-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1445,6 +1676,13 @@ textarea {
   }
 
   .why-gnz-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-grid-four,
+  .real-estate-grid,
+  .theme-grid,
+  .principal-preview-grid {
     grid-template-columns: 1fr;
   }
 

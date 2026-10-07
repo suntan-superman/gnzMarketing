@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import CTASection from "@/components/CTASection";
 
 export const metadata = {
-  title: "Data Science | GNZ Marketing, LLC",
+  title: "Data Science | GNZ Marketing Group",
 };
 
 export default function DataSciencePage() {

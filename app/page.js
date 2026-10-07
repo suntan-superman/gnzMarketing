@@ -1,122 +1,106 @@
-import {
-  ArrowRight,
-  BarChart3,
-  Brain,
-  LineChart,
-  MessageCircle,
-  Microscope,
-  MousePointerClick,
-  Target,
-  Users,
-  Zap,
-} from "lucide-react";
+import { ArrowRight, Building2, Compass, Map, Users } from "lucide-react";
+import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import Hero from "@/components/Hero";
 import SectionIntro from "@/components/SectionIntro";
 import ServiceCard from "@/components/ServiceCard";
 import WhyGNZ from "@/components/WhyGNZ";
-import { industries, outcomes, services } from "@/lib/content";
+import { approachSteps, realEstateAreas, services } from "@/lib/content";
+import { getPublicPrincipals } from "@/lib/siteContent";
 
-export default function Home() {
-  const outcomeIcons = [LineChart, Zap, Users, MessageCircle, Target, BarChart3, MousePointerClick, Brain];
+export const dynamic = "force-dynamic";
+
+const areaIcons = [Building2, Compass, Users, Map];
+
+export default async function Home() {
+  const principals = await getPublicPrincipals();
 
   return (
     <>
       <Hero
-        eyebrow="GNZ Marketing, LLC"
-        title="Marketing Powered by Data. Growth Driven by Results."
-        copy="GNZ Marketing helps organizations transform data into actionable insights, smarter campaigns, and measurable business growth."
-        ctaLabel="Learn More"
-        ctaHref="/about"
+        eyebrow="GNZ Marketing Group"
+        title="Strategy. Relationships. Opportunities. Growth."
+        copy="GNZ Marketing Group brings together business development, strategic marketing, real estate, behavioral insight, and partnerships to identify opportunities and turn them into measurable growth."
+        capability="Business Development | Marketing | Real Estate | Strategic Partnerships"
+        ctaLabel="Start a Conversation"
+        ctaHref="/contact"
+        secondaryCtaLabel="Explore What We Do"
+        secondaryCtaHref="/services"
         variant="home"
       />
 
-      <section className="band band-blue">
-        <div className="container readable">
-          <h2>Understand Why Customers Buy.</h2>
-          <p>
-            GNZ Marketing combines behavioral science, market intelligence, and performance marketing to help organizations
-            create more effective campaigns, stronger messaging, and measurable growth.
-          </p>
+      <section className="section" id="what-we-do">
+        <div className="container">
+          <SectionIntro
+            kicker="What We Do"
+            title="Capabilities built around opportunity and growth."
+            copy="GNZ connects insight, strategy, relationships, and execution across the areas that help organizations move forward."
+          />
+          <div className="service-grid service-grid-four">
+            {services.map((service) => <ServiceCard key={service.title} service={service} />)}
+          </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section band-gray" id="real-estate-preview">
         <div className="container">
           <SectionIntro
-            kicker="How It Works"
-            title="Understand What Drives Customers. Grow What Drives Revenue."
+            kicker="Real Estate"
+            title="Relationships that connect opportunities, buyers, and investors."
+            copy="GNZ identifies real estate opportunities, builds relationships between buyers, sellers, and investors, and supports transactions from opportunity identification through disposition."
           />
-          <div className="service-grid">
-            {services.map((service) => (
-              <ServiceCard key={service.title} service={service} />
-            ))}
+          <div className="real-estate-grid">
+            {realEstateAreas.map((area, index) => {
+              const Icon = areaIcons[index];
+              return <article className="real-estate-card" key={area.id}>
+                <Icon size={34} aria-hidden="true" />
+                <h3>{area.title}</h3>
+                <p>{area.copy}</p>
+                <a className="text-link" href={`/real-estate#${area.id}`}>Explore {area.title} <ArrowRight size={18} /></a>
+              </article>;
+            })}
           </div>
         </div>
       </section>
 
       <WhyGNZ />
 
-      <section className="section section-rule">
-        <div className="container">
-          <h2 className="center-title">Strategic Partners and Certifications</h2>
-          <div className="partner-row" aria-label="Placeholder partner badges">
-            <span>NMSDC</span>
-            <span>Inc. 5000</span>
-            <span>Best Workplaces</span>
-            <span>Stanford LEI</span>
-          </div>
-        </div>
-      </section>
-
-      <section className="section visual-band">
-        <div className="container">
+      <section className="section" id="approach-preview">
+        <div className="container two-col align-center">
           <SectionIntro
-            title="Turn Customer Insights Into Measurable Growth"
-            copy="GNZ Marketing helps organizations uncover what drives customer decisions and transform those insights into strategies that increase engagement, improve marketing performance, and accelerate growth."
-            centered
+            kicker="Our Approach"
+            title="Understand the opportunity. Build the right path forward."
+            copy="Our approach connects customer understanding, data, relationships, and practical execution without losing sight of the decisions that matter."
           />
-          <div className="outcome-grid">
-            {outcomes.map((outcome, index) => {
-              const Icon = outcomeIcons[index];
-              return (
-                <div className="outcome" key={outcome.title}>
-                  <Icon size={34} strokeWidth={2.2} />
-                  <strong>{outcome.title}</strong>
-                  <p>{outcome.copy}</p>
-                </div>
-              );
-            })}
+          <ol className="approach-list">
+            {approachSteps.map(([title, copy], index) => <li key={title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div><strong>{title}</strong><p>{copy}</p></div>
+            </li>)}
+          </ol>
+        </div>
+      </section>
+
+      <section className="section band-blue" id="about-preview">
+        <div className="container two-col align-center">
+          <div>
+            <p className="kicker">About GNZ</p>
+            <h2>Marketing, relationships, and opportunities connected by strategy.</h2>
+            <p className="wide-copy">GNZ Marketing Group brings together marketing strategy, behavioral insight, business development, real estate, and strategic relationships to identify opportunities and help organizations grow.</p>
+            <Link className="button" href="/about">Who We Are <ArrowRight size={18} /></Link>
+          </div>
+          <div className="principal-preview-grid">
+            {principals.map((principal) => <article className="principal-preview" key={principal.id || principal.name}>
+              <p className="kicker">Principal</p>
+              <h3>{principal.name}</h3>
+              <p>{principal.role}</p>
+              <Link className="text-link" href={principal.name?.toLowerCase().includes("gabriel") ? "/about/gabriel-gonzales" : "/about"}>View profile <ArrowRight size={18} /></Link>
+            </article>)}
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <SectionIntro
-            kicker="Industries We Serve"
-            copy="We help organizations understand customer behavior, improve decision-making, and drive measurable business outcomes across complex and highly regulated industries."
-          />
-          <div className="industry-list compact">
-            {industries.slice(0, 3).map((industry) => (
-              <article className="industry-item" key={industry.name}>
-                <div className="industry-image" style={{ backgroundImage: industry.gradient }}>
-                  <Microscope size={42} />
-                </div>
-                <div>
-                  <h3>{industry.name}</h3>
-                  <p>{industry.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-          <a className="text-link" href="/services">
-            Explore services <ArrowRight size={18} />
-          </a>
-        </div>
-      </section>
-
-      <CTASection title="Ready to Impact Customer Behavior and Improve ROI?" />
+      <CTASection title="Start a conversation about what’s next." />
     </>
   );
 }
