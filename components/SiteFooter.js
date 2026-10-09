@@ -20,10 +20,13 @@ export default function SiteFooter() {
         <div>
           <h2>Explore</h2>
           <Link href="/services">What We Do</Link>
+          <Link href="/marketing">Marketing</Link>
           <Link href="/business-development">Business Development</Link>
+          <Link href="/strategic-partnerships">Strategic Partnerships</Link>
+          <Link href="/behavioral-insight">Behavioral Insight</Link>
           <Link href="/real-estate">Real Estate</Link>
           <Link href="/approach">Our Approach</Link>
-          <Link href="/hub">Hub</Link>
+          <Link href="/hub">Insights</Link>
           <Link href="/jobs">Jobs</Link>
         </div>
       </div>

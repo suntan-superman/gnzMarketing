@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import { getPublicHubEntries } from "@/lib/siteContent";
 
 export const metadata = {
-  title: "The Hub | GNZ Marketing Group",
+  title: "Insights | GNZ Marketing Group",
 };
 
 export const dynamic = "force-dynamic";
@@ -12,8 +12,8 @@ export default async function HubPage() {
   return (
     <>
       <Hero
-        title="The Hub"
-        copy="Short, practical reads from the team responsible for turning insights into action."
+        title="Insights"
+        copy="Practical perspectives from GNZ on people, opportunities, relationships, and growth."
         variant="hub"
       />
       <section className="section">
@@ -26,7 +26,7 @@ export default async function HubPage() {
               {entry.author ? <small>{entry.author}</small> : null}
             </article>
           ))}
-          {!entries.length ? <p>No Hub entries are available yet. Please check back soon.</p> : null}
+          {!entries.length ? <p>Insights are being prepared. Please check back soon.</p> : null}
         </div>
       </section>
     </>

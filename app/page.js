@@ -1,16 +1,16 @@
-import { ArrowRight, Building2, Compass, Map, Users } from "lucide-react";
+import { ArrowRight, Building2, Compass, Handshake, Map, Search, Users } from "lucide-react";
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import Hero from "@/components/Hero";
 import SectionIntro from "@/components/SectionIntro";
 import ServiceCard from "@/components/ServiceCard";
 import WhyGNZ from "@/components/WhyGNZ";
-import { approachSteps, realEstateAreas, services } from "@/lib/content";
+import { approachSteps, heroCapabilities, realEstateAreas, services } from "@/lib/content";
 import { getPublicPrincipals } from "@/lib/siteContent";
 
 export const dynamic = "force-dynamic";
 
-const areaIcons = [Building2, Compass, Users, Map];
+const areaIcons = [Building2, Search, Compass, Users, Map, Handshake];
 
 export default async function Home() {
   const principals = await getPublicPrincipals();
@@ -20,8 +20,8 @@ export default async function Home() {
       <Hero
         eyebrow="GNZ Marketing Group"
         title="Strategy. Relationships. Opportunities. Growth."
-        copy="GNZ Marketing Group brings together business development, strategic marketing, real estate, behavioral insight, and partnerships to identify opportunities and turn them into measurable growth."
-        capability="Business Development | Marketing | Real Estate | Strategic Partnerships"
+        copy="GNZ Marketing Group helps businesses, investors, and organizations identify opportunities, build stronger relationships, and turn strategy into measurable growth."
+        signals={heroCapabilities}
         ctaLabel="Start a Conversation"
         ctaHref="/contact"
         secondaryCtaLabel="Explore What We Do"
@@ -94,13 +94,13 @@ export default async function Home() {
               <p className="kicker">Principal</p>
               <h3>{principal.name}</h3>
               <p>{principal.role}</p>
-              <Link className="text-link" href={principal.name?.toLowerCase().includes("gabriel") ? "/about/gabriel-gonzales" : "/about"}>View profile <ArrowRight size={18} /></Link>
+              <Link className="text-link" href={principal.name?.toLowerCase().includes("gabriel") ? "/about/gabriel-gonzales" : "/about/zay-aaron-julian"}>View profile <ArrowRight size={18} /></Link>
             </article>)}
           </div>
         </div>
       </section>
 
-      <CTASection title="Start a conversation about what’s next." />
+      <CTASection title="Let’s Talk About the Opportunity." />
     </>
   );
 }

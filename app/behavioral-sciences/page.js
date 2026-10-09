@@ -4,7 +4,7 @@ import CTASection from "@/components/CTASection";
 import { behavioralIndustries } from "@/lib/content";
 
 export const metadata = {
-  title: "Behavioral Science | GNZ Marketing Group",
+  title: "Behavioral Insight | GNZ Marketing Group",
 };
 
 export default function BehavioralSciencePage() {
@@ -18,17 +18,17 @@ export default function BehavioralSciencePage() {
   return (
     <>
       <Hero
-        eyebrow="Behavioral Science"
-        title="Understanding the psychology behind decisions, communication, and action."
-        copy="Behavioral science helps GNZ uncover what drives real-world judgment and decision-making so marketing, communication, and strategy can connect with people more effectively."
+        eyebrow="Behavioral Insight"
+        title="Understand What Drives People to Decide, Act, and Buy."
+        copy="GNZ applies behavioral principles and customer insight to help businesses communicate more effectively, build stronger relationships, and make better marketing and business decisions."
         variant="behavioral"
       />
       <section className="section">
         <div className="container">
-          <h2>The psychology behind decisions, communication, and action.</h2>
+          <h2>Practical insight into decisions, communication, and action.</h2>
           <p className="wide-copy">
-            Led by research-minded marketers and industry experts, our Behavioral Science practice zeroes in on the biases,
-            friction points, hidden drivers, and context cues that influence your audience.
+            GNZ uses practical behavioral insight to understand the context, friction points, and motivations that influence
+            people. Existing Behavioral Science methodology remains available where it helps explain the work.
           </p>
           <div className="process-list">
             {process.map(([title, copy, Icon], index) => (

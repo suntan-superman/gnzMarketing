@@ -1,4 +1,5 @@
 import { Play, Sparkles } from "lucide-react";
+import Link from "next/link";
 import Hero from "@/components/Hero";
 import SectionIntro from "@/components/SectionIntro";
 import { getPublicPrincipals } from "@/lib/siteContent";
@@ -15,7 +16,7 @@ export default async function AboutPage() {
     <>
       <Hero
         eyebrow="About GNZ"
-        title="Marketing, relationships, and opportunities connected by strategy."
+        title="Marketing, Relationships, and Opportunities Connected by Strategy."
         copy="GNZ Marketing Group brings together marketing strategy, behavioral insight, business development, real estate, and strategic relationships to identify opportunities and help organizations grow."
         ctaLabel="Our Approach"
         ctaHref="/approach"
@@ -70,6 +71,7 @@ export default async function AboutPage() {
                 <h3>{principal.name}</h3>
                 <p>{principal.role}</p>
                 <p>{principal.bio}</p>
+                <Link className="text-link" href={principal.name?.toLowerCase().includes("gabriel") ? "/about/gabriel-gonzales" : "/about/zay-aaron-julian"}>View profile</Link>
               </article>
             ))}
           </div>

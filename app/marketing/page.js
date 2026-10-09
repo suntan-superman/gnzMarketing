@@ -18,7 +18,7 @@ export default function MarketingPage() {
   return <>
     <Hero
       eyebrow="Marketing"
-      title="Strategic marketing informed by human behavior."
+      title="Strategic Marketing Built Around How People Think and Decide"
       copy="GNZ combines customer understanding, behavioral insight, data, and practical execution to create marketing that connects with real people and supports measurable growth."
       ctaLabel="Start a Conversation"
       ctaHref="/contact"
@@ -37,6 +37,10 @@ export default function MarketingPage() {
             <h3>{title}</h3>
             <p>{copy}</p>
           </article>)}
+        </div>
+        <div className="marketing-topic-list">
+          <p className="kicker">Capability topics</p>
+          <p>Marketing strategy · Positioning · Customer and consumer insight · Campaign strategy · Lead generation · Market development · Customer engagement</p>
         </div>
       </div>
     </section>

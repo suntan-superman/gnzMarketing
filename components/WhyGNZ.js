@@ -1,32 +1,32 @@
-import { BarChart3, Brain, Handshake, TrendingUp } from "lucide-react";
+import { ArrowUpRight, Brain, Handshake, Users, Zap } from "lucide-react";
 
 const differentiators = [
   {
-    title: "Behavioral Intelligence",
-    statement: "Understand the forces behind customer decisions.",
+    title: "People First",
+    statement: "We start by understanding the people behind the decision.",
     copy:
-      "GNZ applies behavioral science to uncover the motivations, biases, context, and decision drivers that influence customer behavior.",
-    Icon: Brain,
+      "Behavioral insight helps GNZ understand what matters to customers, stakeholders, and the people involved in the opportunity.",
+    Icon: Users,
   },
   {
-    title: "Data-Driven Strategy",
-    statement: "Turn information into decisions you can act on.",
-    copy: "We transform data and customer insight into focused strategies designed to improve marketing performance.",
-    Icon: BarChart3,
+    title: "Opportunity Driven",
+    statement: "We look beyond the obvious to identify where value can be created.",
+    copy: "GNZ connects market context, customer understanding, and practical strategy to find the next useful opening.",
+    Icon: ArrowUpRight,
   },
   {
-    title: "Relationship-Driven Growth",
-    statement: "Connect opportunities with the people who can move them forward.",
+    title: "Relationship Focused",
+    statement: "The right relationship can create opportunities that strategy alone cannot.",
     copy:
-      "GNZ brings relationship development, business insight, and strategic partnerships together to create useful connections.",
+      "We build thoughtful connections between the people, businesses, and organizations involved in moving an opportunity forward.",
     Icon: Handshake,
   },
   {
-    title: "Strategic Execution",
-    statement: "Turn insight and opportunity into measurable action.",
+    title: "Built for Action",
+    statement: "Ideas only matter when they turn into measurable movement.",
     copy:
-      "We connect clear objectives, practical strategy, and focused execution so the next decision is easier to make.",
-    Icon: TrendingUp,
+      "GNZ turns insight and opportunity into focused next steps, clear objectives, and useful learning.",
+    Icon: Zap,
   },
 ];
 
@@ -36,10 +36,10 @@ export default function WhyGNZ() {
       <div className="container">
         <div className="section-intro centered why-gnz-intro">
           <p className="kicker">Why GNZ?</p>
-          <h2 id="why-gnz-title">Insight that moves people, relationships, and opportunities.</h2>
+          <h2 id="why-gnz-title">We Connect the Pieces Others Often See Separately.</h2>
           <p>
-            We combine behavioral insight, data, relationships, and practical strategy to help organizations identify
-            opportunities and turn them into measurable growth.
+            GNZ looks at the bigger picture—understanding the people involved, identifying opportunities, building the right
+            relationships, and creating a practical path forward.
           </p>
         </div>
         <div className="why-gnz-grid">

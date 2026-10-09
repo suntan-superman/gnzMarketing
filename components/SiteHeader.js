@@ -8,15 +8,15 @@ import { useState } from "react";
 const groups = [
   {
     label: "What We Do",
-    items: [["Marketing", "/marketing"], ["Business Development", "/business-development"], ["Real Estate", "/real-estate"], ["Behavioral Science", "/behavioral-sciences"]],
+    items: [["Marketing", "/marketing"], ["Business Development", "/business-development"], ["Strategic Partnerships", "/strategic-partnerships"], ["Behavioral Insight", "/behavioral-insight"]],
   },
   {
     label: "Real Estate",
-    items: [["Overview", "/real-estate"], ["Acquisitions", "/real-estate#acquisitions"], ["Opportunities", "/real-estate#opportunities"], ["Investor Network", "/real-estate#investor-network"], ["Dispositions", "/real-estate#dispositions"]],
+    items: [["Overview", "/real-estate"], ["Acquisitions", "/real-estate#acquisitions"], ["Investment Opportunities", "/real-estate#investment-opportunities"], ["Investor Network", "/real-estate#investor-network"], ["Dispositions", "/real-estate#dispositions"]],
   },
   {
-    label: "About GNZ",
-    items: [["Who We Are", "/about"], ["Our Approach", "/approach"], ["Gabriel Gonzales", "/about/gabriel-gonzales"]],
+    label: "About",
+    items: [["Who We Are", "/about"], ["Our Approach", "/approach"], ["Gabriel Gonzales", "/about/gabriel-gonzales"], ["Zay", "/about/zay-aaron-julian"]],
   },
 ];
 
@@ -49,7 +49,7 @@ export default function SiteHeader() {
           {group.items.map(([label, href]) => <Link key={href} href={href} className={pathMatches(pathname, href) ? "active" : ""} onClick={closeNavigation}>{label}</Link>)}
         </div>
       </details>)}
-      <Link href="/hub" className={pathMatches(pathname, "/hub") ? "active" : ""} onClick={closeNavigation}>Hub</Link>
+      <Link href="/hub" className={pathMatches(pathname, "/hub") ? "active" : ""} onClick={closeNavigation}>Insights</Link>
       <Link className="nav-cta" href="/contact" onClick={closeNavigation}>Contact</Link>
     </nav>
   </header>;

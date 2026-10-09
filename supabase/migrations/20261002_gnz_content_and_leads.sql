@@ -78,7 +78,7 @@ for each row execute function public.set_updated_at();
 
 insert into public.gnz_principals (id, name, role, bio, sort_order)
 values
-  ('gabriel', 'Gabriel Gonzales', 'Principal, Strategy and Client Growth', 'Gabriel brings a practical operator''s mindset to marketing strategy, client relationships, and growth planning.', 0),
+  ('gabriel', 'Gabriel Gonzales', 'Principal, Strategy & Business Development', 'Gabriel brings experience across sales, marketing, business development, real estate, and relationship development, with a focus on understanding people, identifying opportunity, and creating practical paths to growth.', 0),
   ('zay', 'Zay Aaron-Julian', 'Principal, Campaigns and Performance', 'Zay focuses on campaign execution, audience engagement, and translating insights into measurable marketing action.', 1)
 on conflict (id) do nothing;
 
@@ -88,9 +88,9 @@ on conflict (id) do nothing;
 
 insert into public.gnz_hub_entries (id, title, description, author, sort_order)
 values
-  ('hub-1', 'Hale Forster on An N of 1 podcast.', 'A placeholder expert post about marrying academic knowledge with industry research to support positive behavior change.', 'GNZ Marketing', 0),
-  ('hub-2', 'Uncovering the Why: LLMs in the Next Era of Marketing Analytics', 'A short article placeholder about why understanding why something works matters more than measurement alone.', 'GNZ Insights', 1),
-  ('hub-3', 'How Creative Testing Improves Marketing Confidence', 'A practical placeholder note on using pre-testing, audience signals, and iteration to reduce campaign guesswork.', 'GNZ Strategy', 2)
+  ('hub-1', 'Hale Forster on An N of 1 podcast.', 'A conversation about marrying academic knowledge with industry research to support positive behavior change.', 'GNZ Marketing', 0),
+  ('hub-2', 'Uncovering the Why: LLMs in the Next Era of Marketing Analytics', 'A short note about why understanding why something works matters more than measurement alone.', 'GNZ Insights', 1),
+  ('hub-3', 'How Creative Testing Improves Marketing Confidence', 'A practical note on using pre-testing, audience signals, and iteration to reduce campaign guesswork.', 'GNZ Strategy', 2)
 on conflict (id) do nothing;
 
 alter table public.gnz_leads enable row level security;

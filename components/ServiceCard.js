@@ -4,8 +4,10 @@ import { ArrowRight, Brain, Handshake, LineChart, Map, Megaphone } from "lucide-
 const icons = {
   Marketing: Megaphone,
   "Business Development": Handshake,
+  "Strategic Partnerships": Handshake,
   "Real Estate": Map,
   "Behavioral Science": Brain,
+  "Behavioral Insight": Brain,
   "Data Science": LineChart,
   "Performance Marketing": Megaphone,
 };

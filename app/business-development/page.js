@@ -18,8 +18,8 @@ export default function BusinessDevelopmentPage() {
   return <>
     <Hero
       eyebrow="Business Development"
-      title="Finding opportunities and building relationships that create growth."
-      copy="GNZ connects strategy, relationships, market insight, and execution to identify and pursue growth opportunities."
+      title="Connecting the Right People, Businesses, and Opportunities."
+      copy="GNZ helps identify new opportunities, develop relationships, and create strategic connections that can lead to measurable growth."
       ctaLabel="Connect With GNZ"
       ctaHref="/contact"
       variant="business-development"
@@ -37,6 +37,10 @@ export default function BusinessDevelopmentPage() {
             <h3>{title}</h3>
             <p>{copy}</p>
           </article>)}
+        </div>
+        <div className="business-topic-list">
+          <p className="kicker">Focus areas</p>
+          <p>New business development · Relationship development · Strategic partnerships · Market expansion · Account development · Cross-industry collaboration · Opportunity identification</p>
         </div>
       </div>
     </section>

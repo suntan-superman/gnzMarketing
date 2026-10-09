@@ -6,6 +6,7 @@ export default function Hero({
   title,
   copy,
   capability,
+  signals,
   ctaLabel,
   ctaHref,
   secondaryCtaLabel,
@@ -21,6 +22,9 @@ export default function Hero({
         <h1>{title}</h1>
         <p>{copy}</p>
         {capability ? <p className="hero-capability">{capability}</p> : null}
+        {signals?.length ? <div className="hero-signals">
+          {signals.map(([title, signalCopy]) => <div className="hero-signal" key={title}><strong>{title}</strong><span>{signalCopy}</span></div>)}
+        </div> : null}
         {ctaLabel && ctaHref ? <div className="hero-actions">
           <Link className="button" href={ctaHref}>{ctaLabel}</Link>
           {secondaryCtaLabel && secondaryCtaHref ? <Link className="button button-secondary" href={secondaryCtaHref}>{secondaryCtaLabel}</Link> : null}

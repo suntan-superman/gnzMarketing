@@ -1,4 +1,5 @@
 import ContactForm from "./ContactForm";
+import Link from "next/link";
 
 export default function CTASection({ title }) {
   return (
@@ -6,7 +7,8 @@ export default function CTASection({ title }) {
       <div className="hero-ring cta-ring" aria-hidden="true" />
       <div className="container">
         <h2>{title}</h2>
-        <p>Tell us what you are working toward and where a clearer strategy, stronger relationship, or new opportunity could help.</p>
+        <p>Have a business challenge, growth opportunity, property, partnership, or idea worth exploring? Let&apos;s talk.</p>
+        <Link className="button cta-link" href="/contact">Let&apos;s Talk</Link>
         <ContactForm compact />
       </div>
     </section>
