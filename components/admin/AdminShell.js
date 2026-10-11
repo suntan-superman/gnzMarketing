@@ -8,6 +8,9 @@ const links = [
   { href: "/admin", label: "Dashboard", exact: true },
   { href: "/admin/leads", label: "Leads" },
   { href: "/admin/content", label: "Site content" },
+  { href: "/admin/selected-work", label: "Selected Work" },
+  { href: "/admin/insights", label: "Insights" },
+  { href: "/admin/investment-opportunities", label: "Investment Opportunities" },
 ];
 
 export default function AdminShell({ profile, children }) {

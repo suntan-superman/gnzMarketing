@@ -3,6 +3,7 @@ import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import Hero from "@/components/Hero";
 import { realEstateAreas } from "@/lib/content";
+import { getInvestmentOpportunitiesPublicEnabled } from "@/lib/managedContent";
 
 export const metadata = {
   title: "Real Estate | GNZ Marketing Group",
@@ -11,7 +12,9 @@ export const metadata = {
 
 const icons = [Building2, Search, Compass, Users, Map, Handshake];
 
-export default function RealEstatePage() {
+export default async function RealEstatePage() {
+  const investmentOpportunitiesEnabled = await getInvestmentOpportunitiesPublicEnabled();
+  const visibleRealEstateAreas = realEstateAreas.filter((area) => investmentOpportunitiesEnabled || area.id !== "investment-opportunities");
   return <>
     <Hero
       eyebrow="Real Estate"
@@ -25,7 +28,7 @@ export default function RealEstatePage() {
       <div className="container">
         <div className="section-intro readable"><p className="kicker">A distinct GNZ division</p><h2>Connect the right people to the right opportunity.</h2><p>GNZ&apos;s real-estate work is presented conservatively for this review build. The focus is on sourcing, relationships, and clear communication around opportunities—not on unsupported claims about returns, licensing, or transaction history.</p></div>
         <div className="real-estate-detail-grid">
-          {realEstateAreas.map((area, index) => { const Icon = icons[index]; return <article className="real-estate-detail" id={area.id} key={area.id}><Icon size={40} aria-hidden="true" /><h2>{area.title}</h2><p>{area.copy}</p><p className="detail-note">GNZ can provide more detail on this area as the service direction develops.</p><Link className="text-link" href="/contact">Connect With GNZ <ArrowRight size={18} /></Link></article>; })}
+          {visibleRealEstateAreas.map((area) => { const index = realEstateAreas.findIndex((item) => item.id === area.id); const Icon = icons[index]; return <article className="real-estate-detail" id={area.id} key={area.id}><Icon size={40} aria-hidden="true" /><h2>{area.title}</h2><p>{area.copy}</p><p className="detail-note">GNZ can provide more detail on this area as the service direction develops.</p><Link className="text-link" href={area.id === "investment-opportunities" ? "/real-estate/investment-opportunities" : "/contact"}>{area.id === "investment-opportunities" ? "View opportunities" : "Connect With GNZ"} <ArrowRight size={18} /></Link></article>; })}
         </div>
       </div>
     </section>

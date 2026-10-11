@@ -1464,6 +1464,133 @@ textarea {
   gap: 28px;
 }
 
+.managed-editor {
+  display: grid;
+  gap: 28px;
+}
+
+.managed-gate-card {
+  display: grid;
+  gap: 16px;
+  border-left: 5px solid var(--primary);
+}
+
+.managed-gate-card h2 {
+  margin: 0 0 5px;
+}
+
+.managed-gate-card p {
+  margin: 0;
+}
+
+.managed-gate-warning {
+  color: var(--primary-dark);
+}
+
+.gate-toggle {
+  padding: 14px;
+  background: #e6f4ed;
+}
+
+.managed-filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.managed-record-list {
+  display: grid;
+  gap: 10px;
+}
+
+.managed-record {
+  display: grid;
+  gap: 5px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  background: var(--surface);
+  text-align: left;
+  cursor: pointer;
+}
+
+.managed-record:hover,
+.managed-record.selected {
+  border-color: var(--primary);
+  background: #eef7f1;
+}
+
+.managed-record span,
+.managed-record small {
+  color: var(--text-secondary);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.status-draft {
+  color: #7a4a00;
+  background: #fff0c2;
+}
+
+.status-published {
+  color: #075d3f;
+  background: #cdeedc;
+}
+
+.status-archived {
+  color: #5b6260;
+  background: #e4e8e5;
+}
+
+.managed-form {
+  display: grid;
+  gap: 18px;
+}
+
+.managed-form .admin-card-heading {
+  margin-bottom: 4px;
+}
+
+.managed-form label {
+  display: grid;
+  gap: 6px;
+}
+
+.admin-help {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.managed-preview {
+  padding: 24px;
+  border: 1px dashed var(--primary);
+  background: #f4fbf6;
+}
+
+.managed-preview h2 {
+  margin-bottom: 10px;
+}
+
+.managed-preview-body {
+  white-space: pre-wrap;
+  color: var(--text-secondary);
+}
+
+.managed-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 6px;
+}
+
 .editor-block {
   display: grid;
   gap: 14px;
@@ -1577,7 +1704,8 @@ textarea {
   }
 
   .lead-filters,
-  .lead-detail-grid {
+  .lead-detail-grid,
+  .managed-filters {
     grid-template-columns: 1fr;
   }
 

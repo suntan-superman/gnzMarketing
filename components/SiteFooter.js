@@ -26,7 +26,7 @@ export default function SiteFooter() {
           <Link href="/behavioral-insight">Behavioral Insight</Link>
           <Link href="/real-estate">Real Estate</Link>
           <Link href="/approach">Our Approach</Link>
-          <Link href="/hub">Insights</Link>
+          <Link href="/insights">Insights</Link>
           <Link href="/jobs">Jobs</Link>
         </div>
       </div>

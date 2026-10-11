@@ -5,14 +5,14 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const groups = [
+const baseGroups = [
   {
     label: "What We Do",
     items: [["Marketing", "/marketing"], ["Business Development", "/business-development"], ["Strategic Partnerships", "/strategic-partnerships"], ["Behavioral Insight", "/behavioral-insight"]],
   },
   {
     label: "Real Estate",
-    items: [["Overview", "/real-estate"], ["Acquisitions", "/real-estate#acquisitions"], ["Investment Opportunities", "/real-estate#investment-opportunities"], ["Investor Network", "/real-estate#investor-network"], ["Dispositions", "/real-estate#dispositions"]],
+    items: [["Overview", "/real-estate"], ["Acquisitions", "/real-estate#acquisitions"], ["Investor Network", "/real-estate#investor-network"], ["Dispositions", "/real-estate#dispositions"]],
   },
   {
     label: "About",
@@ -24,10 +24,13 @@ function pathMatches(pathname, href) {
   return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
 }
 
-export default function SiteHeader() {
+export default function SiteHeader({ investmentOpportunitiesEnabled = false }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState(null);
+  const groups = baseGroups.map((group) => group.label === "Real Estate" && investmentOpportunitiesEnabled
+    ? { ...group, items: [...group.items.slice(0, 1), ["Investment Opportunities", "/real-estate/investment-opportunities"], ...group.items.slice(1)] }
+    : group);
 
   function closeNavigation() {
     setOpen(false);
@@ -49,7 +52,7 @@ export default function SiteHeader() {
           {group.items.map(([label, href]) => <Link key={href} href={href} className={pathMatches(pathname, href) ? "active" : ""} onClick={closeNavigation}>{label}</Link>)}
         </div>
       </details>)}
-      <Link href="/hub" className={pathMatches(pathname, "/hub") ? "active" : ""} onClick={closeNavigation}>Insights</Link>
+      <Link href="/insights" className={pathMatches(pathname, "/insights") ? "active" : ""} onClick={closeNavigation}>Insights</Link>
       <Link className="nav-cta" href="/contact" onClick={closeNavigation}>Contact</Link>
     </nav>
   </header>;
