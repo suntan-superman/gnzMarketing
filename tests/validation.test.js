@@ -1,7 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
 import { getBusinessPhone } from "../lib/phone.js";
-import { validateContact, validateEditableContent } from "../lib/validation.js";
+import { GNZ_LEAD_STATUSES, validateContact, validateEditableContent, validateLeadUpdate } from "../lib/validation.js";
+
+const root = path.resolve(import.meta.dirname, "..");
+const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
 
 const validContact = {
   submissionToken: "33333333-3333-4333-8333-333333333333",
@@ -46,4 +51,20 @@ test("content validation keeps incomplete jobs and Hub entries available for edi
 test("phone display and dialing values derive from one configured value", () => {
   assert.deepEqual(getBusinessPhone("2025550100"), { phoneDisplay: "(202) 555-0100", phoneHref: "tel:+12025550100" });
   assert.equal(getBusinessPhone("").phoneHref, "/contact");
+});
+
+test("existing and expanded GNZ lead statuses remain valid", () => {
+  const values = GNZ_LEAD_STATUSES.map((item) => item.value);
+  assert.deepEqual(values, ["new", "contacted", "qualified", "in_discussion", "closed", "not_proceeding"]);
+  for (const status of values) {
+    assert.equal(validateLeadUpdate({ status, internalNotes: "", assignedTo: "" }).valid, true);
+  }
+});
+
+test("lead mutation uses the verified session actor and never browser actor input", () => {
+  const route = read("app/api/admin/leads/[id]/route.js");
+  assert.match(route, /authorizeAdminRequest\(\)/);
+  assert.match(route, /rpc\("smkh_admin_update_lead"/);
+  assert.match(route, /p_actor_id:\s*auth\.user\.id/);
+  assert.doesNotMatch(route, /input\.(?:actor|actorId|actor_id)/);
 });

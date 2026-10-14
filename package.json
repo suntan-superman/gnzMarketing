@@ -24,10 +24,12 @@
     "next": "^16.2.6",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "resend": "^6.28.1"
+    "resend": "^6.28.1",
+    "ws": "^8.21.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.5",
     "eslint": "^9.39.5",
-    "eslint-config-next": "^16.3.6"
+    "globals": "^17.13.0"
   }
 }

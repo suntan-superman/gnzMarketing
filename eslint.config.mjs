@@ -1,10 +1,21 @@
+import js from "@eslint/js";
+import globals from "globals";
 import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
 
 export default defineConfig([
-  ...nextVitals,
+  js.configs.recommended,
   {
-    linterOptions: { reportUnusedDisableDirectives: false },
+    files: ["**/*.{js,mjs}"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      parserOptions: { ecmaFeatures: { jsx: true } },
+      globals: { ...globals.browser, ...globals.node },
+    },
+    rules: {
+      "no-control-regex": "off",
+      "no-unused-vars": ["error", { argsIgnorePattern: "^(?:_|[A-Z])", varsIgnorePattern: "^[A-Z]" }],
+    },
   },
   globalIgnores([".next/**", "out/**", "node_modules/**"]),
 ]);
