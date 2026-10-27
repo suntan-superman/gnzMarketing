@@ -1653,6 +1653,33 @@ textarea {
   gap: 14px;
 }
 
+.lead-archived-notice {
+  margin: 0;
+  padding: 12px 14px;
+  color: #6b4a00;
+  background: #fff4cf;
+  border-left: 4px solid #d6a500;
+}
+
+.lead-lifecycle-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.button-danger {
+  color: #9c1f1f;
+  border: 1px solid #c64a4a;
+  background: #fff;
+}
+
+.button-danger:hover {
+  color: #fff;
+  background: #a32828;
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
