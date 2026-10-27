@@ -7,13 +7,18 @@ import ServiceCard from "@/components/ServiceCard";
 import WhyGNZ from "@/components/WhyGNZ";
 import { approachSteps, heroCapabilities, realEstateAreas, services } from "@/lib/content";
 import { getPublicPrincipals } from "@/lib/siteContent";
+import { getInvestmentOpportunitiesPublicEnabled } from "@/lib/managedContent";
 
 export const dynamic = "force-dynamic";
 
 const areaIcons = [Building2, Search, Compass, Users, Map, Handshake];
 
 export default async function Home() {
-  const principals = await getPublicPrincipals();
+  const [principals, investmentOpportunitiesEnabled] = await Promise.all([
+    getPublicPrincipals(),
+    getInvestmentOpportunitiesPublicEnabled(),
+  ]);
+  const visibleRealEstateAreas = realEstateAreas.filter((area) => investmentOpportunitiesEnabled || area.id !== "investment-opportunities");
 
   return (
     <>
@@ -50,13 +55,14 @@ export default async function Home() {
             copy="GNZ identifies real estate opportunities, builds relationships between buyers, sellers, and investors, and supports transactions from opportunity identification through disposition."
           />
           <div className="real-estate-grid">
-            {realEstateAreas.map((area, index) => {
+            {visibleRealEstateAreas.map((area) => {
+              const index = realEstateAreas.findIndex((item) => item.id === area.id);
               const Icon = areaIcons[index];
               return <article className="real-estate-card" key={area.id}>
                 <Icon size={34} aria-hidden="true" />
                 <h3>{area.title}</h3>
                 <p>{area.copy}</p>
-                <a className="text-link" href={`/real-estate#${area.id}`}>Explore {area.title} <ArrowRight size={18} /></a>
+                <a className="text-link" href={area.id === "investment-opportunities" ? "/real-estate/investment-opportunities" : `/real-estate#${area.id}`}>Explore {area.title} <ArrowRight size={18} /></a>
               </article>;
             })}
           </div>

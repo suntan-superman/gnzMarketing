@@ -1,6 +1,9 @@
 import "./globals.css";
 import { Poppins, Inter } from "next/font/google";
 import SiteFrame from "@/components/SiteFrame";
+import { getInvestmentOpportunitiesPublicEnabled } from "@/lib/managedContent";
+
+export const dynamic = "force-dynamic";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,11 +23,12 @@ export const metadata = {
   metadataBase: new URL("https://gnzmarketingllc.com"),
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const investmentOpportunitiesEnabled = await getInvestmentOpportunitiesPublicEnabled();
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${inter.variable}`}>
-        <SiteFrame>{children}</SiteFrame>
+        <SiteFrame investmentOpportunitiesEnabled={investmentOpportunitiesEnabled}>{children}</SiteFrame>
       </body>
     </html>
   );
