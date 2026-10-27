@@ -3,11 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { getBusinessPhone } from "../lib/phone.js";
-<<<<<<< HEAD
-import { GNZ_LEAD_STATUSES, validateContact, validateEditableContent, validateLeadUpdate } from "../lib/validation.js";
-=======
 import { GNZ_LEAD_STATUSES, isPublicInvestmentOpportunity, validateContact, validateEditableContent, validateLeadUpdate, validateManagedRecord } from "../lib/validation.js";
->>>>>>> feature/gnz-admin-content-oct-2026
 
 const root = path.resolve(import.meta.dirname, "..");
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
@@ -57,8 +53,6 @@ test("phone display and dialing values derive from one configured value", () => 
   assert.equal(getBusinessPhone("").phoneHref, "/contact");
 });
 
-<<<<<<< HEAD
-=======
 test("investment opportunities require both the global gate and published status", () => {
   assert.equal(isPublicInvestmentOpportunity(false, "published"), false);
   assert.equal(isPublicInvestmentOpportunity(true, "draft"), false);
@@ -73,8 +67,6 @@ test("managed content validation requires publishable content and safe URLs", ()
   assert.ok(published.errors.body);
   assert.ok(published.errors.cover_image);
 });
-
->>>>>>> feature/gnz-admin-content-oct-2026
 test("existing and expanded GNZ lead statuses remain valid", () => {
   const values = GNZ_LEAD_STATUSES.map((item) => item.value);
   assert.deepEqual(values, ["new", "contacted", "qualified", "in_discussion", "closed", "not_proceeding"]);
@@ -90,8 +82,6 @@ test("lead mutation uses the verified session actor and never browser actor inpu
   assert.match(route, /p_actor_id:\s*auth\.user\.id/);
   assert.doesNotMatch(route, /input\.(?:actor|actorId|actor_id)/);
 });
-<<<<<<< HEAD
-=======
 
 test("lead lifecycle mutations require admin authorization and protect permanent deletion", () => {
   const route = read("app/api/admin/leads/[id]/route.js");
@@ -101,4 +91,3 @@ test("lead lifecycle mutations require admin authorization and protect permanent
   assert.match(route, /Archive the lead before permanently deleting it/);
   assert.match(route, /smkh_notification_logs/);
 });
->>>>>>> feature/gnz-admin-content-oct-2026

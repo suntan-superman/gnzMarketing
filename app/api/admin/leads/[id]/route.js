@@ -10,10 +10,6 @@ export async function PUT(request, { params }) {
   if (!client) return NextResponse.json({ message: "Lead storage is not configured." }, { status: 503 });
   const validation = validateLeadUpdate(await request.json());
   if (!validation.valid) return NextResponse.json({ message: validation.error }, { status: 422 });
-<<<<<<< HEAD
-  const client = createServiceClient();
-=======
->>>>>>> feature/gnz-admin-content-oct-2026
   if (validation.data.assigned_to) {
     const { data: assignee } = await client.from("admin_users").select("user_id").eq("user_id", validation.data.assigned_to).maybeSingle();
     if (!assignee) return NextResponse.json({ message: "Choose an authorized GNZ administrator." }, { status: 422 });
