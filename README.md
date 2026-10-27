@@ -67,8 +67,8 @@ npx serve@latest out
 To change the passwords see above. It will read values from .env.local
 
 ADMIN=sroy@worksidesoftware.com
-ADMIN_PW=P!nn@cle5565
+ADMIN_PW=
 ADMIN2=dirhis19@yahoo.com
-ADMIN2_PW=GG@nzales55
+ADMIN2_PW=
 /////////////////////////////////////////
 
