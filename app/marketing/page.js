@@ -1,11 +1,10 @@
 import { BarChart3, Brain, MessageCircle, Target } from "lucide-react";
+import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import Hero from "@/components/Hero";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Marketing | GNZ Marketing Group",
-  description: "Strategic marketing informed by human behavior, customer insight, and measurable objectives.",
-};
+export const metadata = createPageMetadata({ title: "Marketing | GNZ Marketing Group", description: "Strategic marketing informed by human behavior, customer insight, and measurable objectives.", path: "/marketing" });
 
 const capabilities = [
   ["Customer behavior", "Understand the context, motivations, and friction behind customer decisions.", Brain],
@@ -44,7 +43,7 @@ export default function MarketingPage() {
         </div>
       </div>
     </section>
-    <section className="section band-gray"><div className="container two-col align-center"><div><p className="kicker">Existing expertise</p><h2>Insight, strategy, and campaign support in one operating rhythm.</h2></div><p className="wide-copy">Explore the existing Behavioral Science and Performance Marketing capabilities for more detail on how GNZ applies these disciplines to customer engagement and marketing performance.</p></div></section>
+    <section className="section band-gray"><div className="container two-col align-center"><div><p className="kicker">Existing expertise</p><h2>Insight, strategy, and campaign support in one operating rhythm.</h2></div><p className="wide-copy">Explore <Link href="/behavioral-insight">Behavioral Insight</Link> and <Link href="/performance-marketing">Performance Marketing</Link> for more detail on how GNZ applies these disciplines to customer engagement and marketing performance.</p></div></section>
     <CTASection title="Ready to make marketing more useful?" />
   </>;
 }

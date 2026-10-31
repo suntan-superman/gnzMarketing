@@ -1,11 +1,9 @@
 import { Handshake, Network, Scale, Users } from "lucide-react";
 import CTASection from "@/components/CTASection";
 import Hero from "@/components/Hero";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Strategic Partnerships | GNZ Marketing Group",
-  description: "GNZ connects people, businesses, and opportunities where shared interests create value.",
-};
+export const metadata = createPageMetadata({ title: "Strategic Partnerships | GNZ Marketing Group", description: "GNZ connects people, businesses, and opportunities where shared interests create value.", path: "/strategic-partnerships" });
 
 const partnershipThemes = [
   ["Shared opportunity", "Start with the opportunity, the people involved, and the value that could be created together.", Handshake],

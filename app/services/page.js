@@ -3,10 +3,9 @@ import SectionIntro from "@/components/SectionIntro";
 import ServiceCard from "@/components/ServiceCard";
 import CTASection from "@/components/CTASection";
 import { services } from "@/lib/content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "What We Do | GNZ Marketing Group",
-};
+export const metadata = createPageMetadata({ title: "What We Do | GNZ Marketing Group", description: "Explore GNZ Marketing Group capabilities across marketing, business development, strategic partnerships, and behavioral insight.", path: "/services" });
 
 export default function ServicesPage() {
   return (

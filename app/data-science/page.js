@@ -1,10 +1,9 @@
 import { Database, ScanSearch, Waypoints } from "lucide-react";
 import Hero from "@/components/Hero";
 import CTASection from "@/components/CTASection";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Data Science | GNZ Marketing Group",
-};
+export const metadata = createPageMetadata({ title: "Data Science | GNZ Marketing Group", description: "Turn customer and market data into useful insight, focused decisions, and practical marketing action with GNZ.", path: "/data-science" });
 
 export default function DataSciencePage() {
   return (

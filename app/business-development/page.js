@@ -1,11 +1,10 @@
 import { Handshake, Lightbulb, Network, Target } from "lucide-react";
+import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import Hero from "@/components/Hero";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Business Development | GNZ Marketing Group",
-  description: "GNZ Marketing Group identifies opportunities and builds relationships that create growth.",
-};
+export const metadata = createPageMetadata({ title: "Business Development | GNZ Marketing Group", description: "GNZ Marketing Group identifies opportunities and builds relationships that create growth.", path: "/business-development" });
 
 const themes = [
   ["Opportunity identification", "Find the openings, needs, and connections that can move an organization forward.", Lightbulb],
@@ -47,7 +46,7 @@ export default function BusinessDevelopmentPage() {
     <section className="section band-gray">
       <div className="container two-col align-center">
         <div><p className="kicker">Strategic Partnerships</p><h2>Connecting people, organizations, and opportunities where shared interests create value.</h2></div>
-        <p className="wide-copy">Strategic partnerships are part of GNZ&apos;s broader positioning. We keep the work grounded in the specific opportunity and the relationships needed to make progress, without assuming a one-size-fits-all model.</p>
+        <p className="wide-copy"><Link href="/strategic-partnerships">Strategic partnerships</Link> are part of GNZ&apos;s broader positioning. We keep the work grounded in the specific opportunity and the relationships needed to make progress, without assuming a one-size-fits-all model.</p>
       </div>
     </section>
     <CTASection title="Have an opportunity worth exploring?" />

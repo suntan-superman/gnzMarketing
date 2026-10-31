@@ -1,9 +1,8 @@
 import Hero from "@/components/Hero";
 import { getPublicJobs } from "@/lib/siteContent";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Jobs | GNZ Marketing Group",
-};
+export const metadata = createPageMetadata({ title: "Jobs | GNZ Marketing Group", description: "Explore future opportunities with GNZ Marketing Group across strategy, behavior, data, creative execution, and growth.", path: "/jobs" });
 
 export const dynamic = "force-dynamic";
 

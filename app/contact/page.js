@@ -1,9 +1,8 @@
 import ContactForm from "@/components/ContactForm";
 import Hero from "@/components/Hero";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Contact | GNZ Marketing Group",
-};
+export const metadata = createPageMetadata({ title: "Contact GNZ Marketing Group", description: "Tell GNZ about the opportunity, relationship, or growth challenge you are exploring.", path: "/contact" });
 
 export default function ContactPage() {
   return (

@@ -1,5 +1,5 @@
 import ContactForm from "./ContactForm";
-import Link from "next/link";
+import TrackedLink from "@/components/TrackedLink";
 
 export default function CTASection({ title }) {
   return (
@@ -8,7 +8,7 @@ export default function CTASection({ title }) {
       <div className="container">
         <h2>{title}</h2>
         <p>Have a business challenge, growth opportunity, property, partnership, or idea worth exploring? Let&apos;s talk.</p>
-        <Link className="button cta-link" href="/contact">Let&apos;s Talk</Link>
+        <TrackedLink className="button cta-link" href="/contact" eventName="contact_cta_click" eventParams={{ location: "cta_section" }}>Let&apos;s Talk</TrackedLink>
         <ContactForm compact />
       </div>
     </section>

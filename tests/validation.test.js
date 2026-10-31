@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { getBusinessPhone } from "../lib/phone.js";
+import { articleJsonLd, breadcrumbJsonLd, organizationJsonLd, websiteJsonLd } from "../lib/seo.js";
 import { GNZ_LEAD_STATUSES, isPublicInvestmentOpportunity, validateContact, validateEditableContent, validateLeadUpdate, validateManagedRecord } from "../lib/validation.js";
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -90,4 +91,34 @@ test("lead lifecycle mutations require admin authorization and protect permanent
   assert.match(route, /authorizeAdminRequest\(\)/g);
   assert.match(route, /Archive the lead before permanently deleting it/);
   assert.match(route, /smkh_notification_logs/);
+});
+
+test("technical SEO routes and metadata are present", () => {
+  const sitemap = read("app/sitemap.js");
+  const robots = read("app/robots.js");
+  const layout = read("app/layout.js");
+  assert.match(sitemap, /getPublicInsights/);
+  assert.match(sitemap, /getPublicSelectedWork/);
+  assert.match(sitemap, /investmentEnabled/);
+  assert.match(robots, /sitemap\.xml/);
+  assert.match(robots, /\/admin\//);
+  assert.match(layout, /metadataBase/);
+  assert.match(layout, /organizationJsonLd/);
+});
+
+test("SEO structured data serializes as valid JSON-LD", () => {
+  const values = [organizationJsonLd(), websiteJsonLd(), breadcrumbJsonLd([{ name: "Home", path: "/" }]), articleJsonLd({ title: "Example", description: "Example description", path: "/insights/example" })];
+  for (const value of values) assert.doesNotThrow(() => JSON.parse(JSON.stringify(value)));
+});
+
+test("admin remains noindex and public content filters remain server-side", () => {
+  assert.match(read("app/admin/(protected)/layout.js"), /index: false/);
+  assert.match(read("lib/managedContent.js"), /eq\("status", "published"\)/);
+  assert.match(read("lib/managedContent.js"), /getInvestmentOpportunitiesPublicEnabled/);
+});
+
+test("GA4 lead events avoid personal data", () => {
+  const contactForm = read("components/ContactForm.js");
+  assert.match(contactForm, /trackEvent\("generate_lead"/);
+  assert.doesNotMatch(contactForm, /trackEvent\([^\n]*(firstName|lastName|email|phone|message)/);
 });

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getBusinessPhone } from "@/lib/phone";
+import TrackedAnchor from "@/components/TrackedAnchor";
 
 const { phoneDisplay, phoneHref } = getBusinessPhone(process.env.NEXT_PUBLIC_BUSINESS_PHONE_DISPLAY);
 
@@ -13,8 +14,8 @@ export default function SiteFooter() {
         </div>
         <div>
           <h2>Contact</h2>
-          {phoneDisplay ? <a href={phoneHref}>{phoneDisplay}</a> : null}
-          <a href="mailto:contact@gnzmarketingllc.com">contact@gnzmarketingllc.com</a>
+          {phoneDisplay ? <TrackedAnchor href={phoneHref} eventName="phone_click" eventParams={{ location: "footer" }}>{phoneDisplay}</TrackedAnchor> : null}
+          <TrackedAnchor href="mailto:contact@gnzmarketingllc.com" eventName="email_click" eventParams={{ location: "footer" }}>contact@gnzmarketingllc.com</TrackedAnchor>
           <span>gnzmarketingllc.com</span>
         </div>
         <div>

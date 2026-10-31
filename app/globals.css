@@ -1078,6 +1078,30 @@ textarea {
   border-top-color: var(--primary);
 }
 
+.analytics-consent {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  width: min(430px, calc(100vw - 40px));
+  padding: 18px;
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.analytics-consent p {
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+}
+
+.analytics-consent div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .site-footer {
   padding: 56px 0;
   color: var(--white);

@@ -2,10 +2,9 @@ import { ArrowLeft, Sparkles } from "lucide-react";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import { getPublicPrincipals } from "@/lib/siteContent";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Gabriel Gonzales | GNZ Marketing Group",
-};
+export const metadata = createPageMetadata({ title: "Gabriel Gonzales | GNZ Marketing Group", description: "Learn about Gabriel Gonzales, Principal, Strategy & Business Development at GNZ Marketing Group.", path: "/about/gabriel-gonzales" });
 
 export const dynamic = "force-dynamic";
 

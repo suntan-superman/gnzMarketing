@@ -1,9 +1,9 @@
-import Link from "next/link";
+import TrackedLink from "@/components/TrackedLink";
 
 export default function FloatingContact() {
   return (
-    <Link className="floating-contact" href="/contact" aria-label="Contact GNZ Marketing">
+    <TrackedLink className="floating-contact" href="/contact" aria-label="Contact GNZ Marketing" eventName="contact_cta_click" eventParams={{ location: "floating_contact" }}>
       Let&apos;s Talk
-    </Link>
+    </TrackedLink>
   );
 }

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { GNZ_SERVICE_OPTIONS } from "@/lib/validation";
 import TurnstileWidget from "@/components/TurnstileWidget";
+import { trackEvent } from "@/lib/analytics";
 
 const initialFields = {
   firstName: "",
@@ -54,6 +55,7 @@ export default function ContactForm({ compact = false }) {
         throw new Error(result.message || "Your message could not be sent.");
       }
       setStatus("success");
+      trackEvent("generate_lead", { form_location: compact ? "cta" : "contact_page", service_interest: fields.service || "unspecified" });
       setMessage(`Your inquiry was received as ${result.reference}. We will follow up using the details you provided.`);
     } catch (error) {
       setStatus("error");

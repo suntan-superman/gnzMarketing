@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TrackedLink from "@/components/TrackedLink";
 import { ChevronDown } from "lucide-react";
 
 export default function Hero({
@@ -26,8 +26,8 @@ export default function Hero({
           {signals.map(([title, signalCopy]) => <div className="hero-signal" key={title}><strong>{title}</strong><span>{signalCopy}</span></div>)}
         </div> : null}
         {ctaLabel && ctaHref ? <div className="hero-actions">
-          <Link className="button" href={ctaHref}>{ctaLabel}</Link>
-          {secondaryCtaLabel && secondaryCtaHref ? <Link className="button button-secondary" href={secondaryCtaHref}>{secondaryCtaLabel}</Link> : null}
+          <TrackedLink className="button" href={ctaHref} eventName={ctaHref === "/contact" ? "contact_cta_click" : "primary_cta_click"} eventParams={{ location: variant, destination: ctaHref }}>{ctaLabel}</TrackedLink>
+          {secondaryCtaLabel && secondaryCtaHref ? <TrackedLink className="button button-secondary" href={secondaryCtaHref} eventName="secondary_cta_click" eventParams={{ location: variant, destination: secondaryCtaHref }}>{secondaryCtaLabel}</TrackedLink> : null}
         </div> : null}
       </div>
       <ChevronDown className="hero-down" size={42} aria-hidden="true" />

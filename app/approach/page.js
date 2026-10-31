@@ -2,10 +2,9 @@ import { Beaker, ChartSpline, Compass, Handshake, Lightbulb } from "lucide-react
 import Hero from "@/components/Hero";
 import CTASection from "@/components/CTASection";
 import { approachSteps } from "@/lib/content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Our Approach | GNZ Marketing Group",
-};
+export const metadata = createPageMetadata({ title: "Our Approach | GNZ Marketing Group", description: "GNZ connects customer understanding, data, relationships, strategy, and execution into a practical path forward.", path: "/approach" });
 
 export default function ApproachPage() {
   const icons = [Compass, Lightbulb, Beaker, Handshake, ChartSpline];

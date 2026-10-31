@@ -2,10 +2,9 @@ import { Blend, ClipboardCheck, FileSearch, Microscope } from "lucide-react";
 import Hero from "@/components/Hero";
 import CTASection from "@/components/CTASection";
 import { behavioralIndustries } from "@/lib/content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Behavioral Insight | GNZ Marketing Group",
-};
+export const metadata = createPageMetadata({ title: "Behavioral Insight | GNZ Marketing Group", description: "GNZ applies behavioral principles and customer insight to help businesses communicate, decide, and act more effectively.", path: "/behavioral-insight" });
 
 export default function BehavioralSciencePage() {
   const process = [

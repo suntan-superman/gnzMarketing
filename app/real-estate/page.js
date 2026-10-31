@@ -4,11 +4,9 @@ import CTASection from "@/components/CTASection";
 import Hero from "@/components/Hero";
 import { realEstateAreas } from "@/lib/content";
 import { getInvestmentOpportunitiesPublicEnabled } from "@/lib/managedContent";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Real Estate | GNZ Marketing Group",
-  description: "GNZ identifies real estate opportunities and builds relationships between buyers, sellers, and investors.",
-};
+export const metadata = createPageMetadata({ title: "Real Estate | GNZ Marketing Group", description: "GNZ identifies real estate opportunities and builds relationships between owners, investors, buyers, and strategic partners.", path: "/real-estate" });
 
 const icons = [Building2, Search, Compass, Users, Map, Handshake];
 

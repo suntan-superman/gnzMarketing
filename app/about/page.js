@@ -3,10 +3,9 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import SectionIntro from "@/components/SectionIntro";
 import { getPublicPrincipals } from "@/lib/siteContent";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "About GNZ | GNZ Marketing Group",
-};
+export const metadata = createPageMetadata({ title: "About GNZ | GNZ Marketing Group", description: "Meet GNZ Marketing Group and the principals connecting marketing, relationships, business development, and opportunity.", path: "/about" });
 
 export const dynamic = "force-dynamic";
 

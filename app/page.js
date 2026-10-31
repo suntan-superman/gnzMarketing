@@ -8,8 +8,13 @@ import WhyGNZ from "@/components/WhyGNZ";
 import { approachSteps, heroCapabilities, realEstateAreas, services } from "@/lib/content";
 import { getPublicPrincipals } from "@/lib/siteContent";
 import { getInvestmentOpportunitiesPublicEnabled } from "@/lib/managedContent";
+import { createPageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
+export const metadata = createPageMetadata({
+  title: "Business Development, Marketing & Real Estate | GNZ Marketing Group",
+  description: "GNZ Marketing Group connects strategy, relationships, business development, marketing, behavioral insight, and real estate opportunities to help organizations grow.",
+});
 
 const areaIcons = [Building2, Search, Compass, Users, Map, Handshake];
 

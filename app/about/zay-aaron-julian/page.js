@@ -2,10 +2,9 @@ import { ArrowLeft, Sparkles } from "lucide-react";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import { getPublicPrincipals } from "@/lib/siteContent";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Zay Aaron-Julian | GNZ Marketing Group",
-};
+export const metadata = createPageMetadata({ title: "Zay Aaron-Julian | GNZ Marketing Group", description: "Learn about Zay Aaron-Julian and her behavioral insight, marketing, relationship, and opportunity-focused leadership at GNZ.", path: "/about/zay-aaron-julian" });
 
 export const dynamic = "force-dynamic";
 

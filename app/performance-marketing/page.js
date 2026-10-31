@@ -1,10 +1,9 @@
 import { ChartNoAxesCombined, Mail, Megaphone, Search } from "lucide-react";
 import Hero from "@/components/Hero";
 import CTASection from "@/components/CTASection";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Performance Marketing | GNZ Marketing Group",
-};
+export const metadata = createPageMetadata({ title: "Performance Marketing | GNZ Marketing Group", description: "Performance marketing informed by behavioral insight, data, creative testing, and measurable customer action.", path: "/performance-marketing" });
 
 export default function PerformanceMarketingPage() {
   const channels = [
