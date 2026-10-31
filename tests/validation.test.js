@@ -133,10 +133,16 @@ test("GA4 initialization disables automatic pageviews and deduplicates client na
   };
 
   assert.equal(initializeAnalytics(" G-TEST123 "), true);
-  assert.equal(calls[0][0], "js");
-  assert.equal(calls[1][0], "config");
-  assert.equal(calls[1][1], "G-TEST123");
-  assert.equal(calls[1][2].send_page_view, false);
+  assert.deepEqual(calls[0], ["consent", "update", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "granted",
+  }]);
+  assert.equal(calls[1][0], "js");
+  assert.equal(calls[2][0], "config");
+  assert.equal(calls[2][1], "G-TEST123");
+  assert.equal(calls[2][2].send_page_view, false);
   assert.equal(trackPageView("/contact", "Contact"), true);
   assert.equal(trackPageView("/contact", "Contact"), false);
   assert.equal(trackPageView("/about", "About"), true);
@@ -162,4 +168,13 @@ test("GA4 conversion events keep only approved non-PII parameters", () => {
   assert.deepEqual(calls[0], ["event", "generate_lead", { form_location: "contact_page", service_interest: "marketing" }]);
 
   delete global.window;
+});
+
+test("GA4 consent mode sets denied defaults before loading the tag", () => {
+  const analytics = read("components/Analytics.js");
+  const analyticsHelpers = read("lib/analytics.js");
+  assert.match(analytics, /gtag\('consent', 'default'/);
+  assert.match(analytics, /ad_storage: 'denied'/);
+  assert.match(analytics, /analytics_storage: 'denied'/);
+  assert.match(analyticsHelpers, /gtag\("consent", "update"/);
 });

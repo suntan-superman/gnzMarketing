@@ -9,6 +9,7 @@ The existing analytics implementation was retained and extended; no second Googl
 
 - `components/Analytics.js` still reads `NEXT_PUBLIC_GA_MEASUREMENT_ID` through `app/layout.js`.
 - Google’s supported `next/script` component loads the bootstrap and Google tag after consent.
+- The bootstrap now sends a denied Consent Mode default before the Google tag loads; acceptance sends an update with `analytics_storage: "granted"` while advertising-related consent remains denied.
 - The tag is loaded with a stable Next.js script ID and initializes only once per measurement ID.
 - Automatic GA4 pageviews are disabled with `send_page_view: false`.
 - Initial and client-side navigation pageviews are sent explicitly using the pathname and page title.
@@ -31,7 +32,7 @@ No Supabase schema, contact destination, admin functionality, DNS, Netlify confi
 
 | Check | Result |
 |---|---|
-| Automated tests | PASS — 15 tests |
+| Automated tests | PASS — 16 tests |
 | Lint | PASS |
 | Production build | PASS — Next.js 16.4.1 |
 | Production dependency audit | PASS — 0 vulnerabilities with `npm audit --omit=dev --audit-level=high` |
