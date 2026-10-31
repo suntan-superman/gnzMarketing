@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { getBusinessPhone } from "../lib/phone.js";
 import { articleJsonLd, breadcrumbJsonLd, organizationJsonLd, websiteJsonLd } from "../lib/seo.js";
+import { initializeAnalytics, trackEvent, trackPageView } from "../lib/analytics.js";
 import { GNZ_LEAD_STATUSES, isPublicInvestmentOpportunity, validateContact, validateEditableContent, validateLeadUpdate, validateManagedRecord } from "../lib/validation.js";
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -121,4 +122,44 @@ test("GA4 lead events avoid personal data", () => {
   const contactForm = read("components/ContactForm.js");
   assert.match(contactForm, /trackEvent\("generate_lead"/);
   assert.doesNotMatch(contactForm, /trackEvent\([^\n]*(firstName|lastName|email|phone|message)/);
+});
+
+test("GA4 initialization disables automatic pageviews and deduplicates client navigation", () => {
+  const calls = [];
+  global.window = {
+    __gnzAnalyticsConsent: true,
+    dataLayer: [],
+    gtag: (...args) => calls.push(args),
+  };
+
+  assert.equal(initializeAnalytics(" G-TEST123 "), true);
+  assert.equal(calls[0][0], "js");
+  assert.equal(calls[1][0], "config");
+  assert.equal(calls[1][1], "G-TEST123");
+  assert.equal(calls[1][2].send_page_view, false);
+  assert.equal(trackPageView("/contact", "Contact"), true);
+  assert.equal(trackPageView("/contact", "Contact"), false);
+  assert.equal(trackPageView("/about", "About"), true);
+  assert.equal(calls.filter(([name]) => name === "event").length, 2);
+
+  delete global.window;
+});
+
+test("GA4 conversion events keep only approved non-PII parameters", () => {
+  const calls = [];
+  global.window = {
+    __gnzAnalyticsConsent: true,
+    gtag: (...args) => calls.push(args),
+  };
+
+  assert.equal(trackEvent("generate_lead", {
+    form_location: "contact_page",
+    service_interest: "marketing",
+    email: "person@example.com",
+    phone: "555-0100",
+    message: "Private details",
+  }), true);
+  assert.deepEqual(calls[0], ["event", "generate_lead", { form_location: "contact_page", service_interest: "marketing" }]);
+
+  delete global.window;
 });
